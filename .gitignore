@@ -1,8 +1,8 @@
 ﻿# big binary files
-.mov
-.wav
-.aif
-.mp3
+*.mov
+*.wav
+*.aif
+*.mp3
 
 # project and temporary files
 .project
