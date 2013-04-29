@@ -1,0 +1,74 @@
+﻿TODO:
+	- Create a patch to analyze audio files
+		- Analyse brightness, noisiness, gain, length							DONE 12/28
+		- Analyse register														DONE 12/30
+		- Output to file in correct format										DONE 12/30
+	
+	- Match two clips with the closest angle using weighted vectors				
+		- Normalize each parameter												DONE 01/29
+		- "weight" vectors														DONE 01/29
+		- Find the angle between two vectors									DONE 01/29
+			- 	u • v = len(u)*len(v)*cosθ
+				cosθ = (u • v) / (len(u)*len(v))	
+				- To calculate length: square root of sum of squares
+		- Get the index of the clip with the closest angle						DONE 02/10
+		
+	- Map video parameters to audio parameters
+		- Decide which parameters map to which									DONE 01/29
+		- Video analysis
+			- Rate of change													DONE 01/29
+				- Compare to BPM/Speed											DONE 02/06	
+					- 1: 255
+					- 3: 400
+			- Brightness														DONE 01/29
+				- Compare to Brightness/Frequency								DONE 02/06								
+					- 4: 4000
+					- 7: 2000
+			- Variation in frame												DONE 02/01				
+				- Compare to Noisiness											DONE 02/06
+					- 5: 1
+			- Saturation														DONE 02/01
+				- Compare to Punch												DONE 02/06
+					- 6: 1
+			- Hue																DONE 02/01 
+				- Compare to Angst												DONE 02/06
+					- 2: 255
+		
+	- Play multiple clips at once
+		- Four clips, one for each type											DONE 02/18
+		- Make sure clips are near same BPM										DONE 02/19
+		- (Make sure clips have same or related key)
+		
+	- String clips together smoothly											POSTPONED 02/26
+		- Don't allow next clip to be same
+		- Shortest path algorithm between two clips
+		- Associate "high cost" with using transition clips
+		
+	- DEBUG *****
+		- Clips do not play right away without coaxing
+		- Clips do not always appear 
+		
+	- Develop a shape to performance, fade in/out different elements with interesting timing
+		- Repetition / Contrast
+		- Game between parameters
+		
+	- Implement user control interface
+	
+	- Compose/tag clips
+		
+	- Compose/tag transitions
+
+	
+NOTES:
+	- Notes from Ofer:
+		* Find good footage where something really happens!
+		* Let the performer have control over when it changes -- the computer can't tell.
+		
+	- Optimize Video Playback:
+		"If you have enough RAM, you can use the loadram message to jit.qt.movie to copy a movie�fs (compressed) media to RAM. Since accessing RAM is significantly faster than accessing a hard disk, movie playback will generally improve, although the jit.qt.movie object still has to decompress each frame as the movie plays. To buffer decompressed matrix data to RAM, use the jit.matrixset object."
+		
+		"W've found that, for most movies, the following parameters yield consistently good results:
+		- 320x240 frame size
+		- 15 frames per second
+		- Video tracks: Photo-JPEG codec, using a medium to high spatial quality setting
+		- Audio tracks: no compression

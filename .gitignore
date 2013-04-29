@@ -1,0 +1,19 @@
+﻿# big binary files
+.mov
+.wav
+.aif
+.mp3
+
+# project and temporary files
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# Locally stored "Eclipse launch configurations"
+*.launch
